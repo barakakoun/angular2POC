@@ -96,7 +96,7 @@ export class ReportDetailsComponent {
         this.outputEvent.emit(value);
     }
      
-     onRemove(value){
+     onRemove(value : Report){
          var index = this.reports.indexOf(value);
          this.reports.splice(index, 1);
      }
