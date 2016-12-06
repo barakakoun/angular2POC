@@ -11,7 +11,11 @@ import { Report } from './report';
                   [(ngModel)]="newReport.category" name="category">
             <option *ngFor="let category of categories" [value]="category">{{category}}</option>
           </select> 
-        <md-input class="reportText" placeholder="תמונה" [(ngModel)]="newReport.img"></md-input>
+        <select class="form-control reportText"  id="imgs"
+                  required
+                  [(ngModel)]="newReport.img" name="img">
+            <option *ngFor="let img of imgs" [value]="img">{{img}}</option>
+          </select> 
         <md-input class="reportText" type="number" placeholder="X" [(ngModel)]="newReport.xCord"></md-input>
         <md-input class="reportText" type="number" placeholder="Y" [(ngModel)]="newReport.yCord"></md-input>
 
@@ -28,7 +32,11 @@ import { Report } from './report';
                   [(ngModel)]="report.category" name="category">
             <option *ngFor="let category of categories" [value]="category">{{category}}</option>
           </select> 
-        <md-input class="reportText" placeholder="תמונה" [(ngModel)]="report.img"></md-input>
+        <select class="form-control reportText"  id="imgs"
+                  required
+                  [(ngModel)]="newReport.img" name="img">
+            <option *ngFor="let img of imgs" [value]="img">{{img}}</option>
+          </select> 
         <md-input class="reportText" type="number" placeholder="X" [(ngModel)]="report.xCord"></md-input>
         <md-input class="reportText" type="number" placeholder="Y" [(ngModel)]="report.yCord"></md-input>
         <br />
@@ -74,8 +82,10 @@ export class ReportCreateComponent {
      
      categories = ['רגיל', 'חשוב', 'דחוף'];
      
+     imgs = ['eminem','drake','lamar','kanye'];
      
-     newReport : Report = { text: '', category: this.categories[0], time: '', img: '', xCord: 0, yCord: 0 };
+     
+     newReport : Report = { text: '', category: this.categories[0], time: '', img: this.imgs[0], xCord: 0, yCord: 0 };
 
    addReport() {
     if (this.newReport) {
@@ -84,7 +94,7 @@ export class ReportCreateComponent {
         this.newReport.time = time;
         
       this.reports.push(this.newReport);
-      this.newReport = { text: '', category: this.categories[0], time: '', img: '', xCord: 0, yCord: 0 };
+      this.newReport = { text: '', category: this.categories[0], time: '', img: this.imgs[0], xCord: 0, yCord: 0 };
     }
   }
    saveReport() {

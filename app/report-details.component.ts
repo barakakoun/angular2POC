@@ -27,6 +27,7 @@ import { Report } from './report';
         </ul>
   `,
   styles: [`
+
     .selected {
       background-color: rgba(0, 178, 217, 0.62) !important;
       color: white;
